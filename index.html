@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live2D Model Loader</title><style>iframe{width:100%;height:80vh;border:none}</style></head><body><input type="text" id="modelUrlInput" placeholder="输入新的模型 URL"> <button id="loadNewModelButton">加载新模型</button><iframe id="live2dFrame" src="live2d.html?modelUrl=./models/ksm/ksm.model.json"></iframe><!-- ./models/hiyori/hiyori_pro_t10.model3.json --><!-- oldversion: https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/%E5%B4%A9%E5%9D%8F%E5%AD%A6%E5%9B%AD2/BYC/model.json --><!-- localversion: ./models/ksm/ksm.model.json --><script>const loadNewModelButton = document.getElementById('loadNewModelButton');
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live2D Model Loader</title><style>iframe{width:100%;height:80vh;border:none}</style></head><body><iframe id="live2dFrame" src="live2d.html?modelUrl=./models/hiyori/hiyori_pro_t10.model3.json"></iframe><div id="urllive2d"><div><input type="text" id="modelUrlInput" placeholder="输入新的模型 URL"> <button id="loadNewModelButton">加载新模型</button></div><div><!-- 增加链接去p2p方法的，sender.html和receiver-index.html --> P2P链接方法 <a href="./sender.html">Sender</a> <a href="./receiver-index.html">Receiver</a></div></div><button id="urlControlButton" style="position:absolute;bottom:10px;right:10px">隐藏链接</button><!-- oldversion: https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/%E5%B4%A9%E5%9D%8F%E5%AD%A6%E5%9B%AD2/BYC/model.json --><!-- localversion: ./models/ksm/ksm.model.json --><script>const loadNewModelButton = document.getElementById('loadNewModelButton');
         const modelUrlInput = document.getElementById('modelUrlInput');
         const live2dFrame = document.getElementById('live2dFrame');
 
@@ -7,4 +7,26 @@
             if (newModelUrl) {
                 live2dFrame.src = `live2d.html?modelUrl=${encodeURIComponent(newModelUrl)}`;
             }
-        });</script></body></html>
+        });
+
+        const urllive2d = document.getElementById('urllive2d');
+          const originurllive2dDisplay = urllive2d.style.display;
+          const urlControlButton = document.getElementById('urlControlButton');
+          urlControlButton.addEventListener('click', function () {
+            if (urllive2d.style.display === 'none') {
+              urllive2d.style.display = originurllive2dDisplay;
+              urlControlButton.textContent = '隐藏链接';
+            } else {
+              urllive2d.style.display = 'none';
+              urlControlButton.textContent = '显示链接';
+            }
+          });
+          document.body.addEventListener('mousemove', function (event) {
+            if (event.clientX < 50 || event.clientX > window.innerWidth - 50) {
+              // toggleButton.style.display = 'block';
+              urlControlButton.style.display = 'block';
+            } else {
+              // toggleButton.style.display = 'none';
+              urlControlButton.style.display = 'none';
+            }
+          });</script></body></html>
