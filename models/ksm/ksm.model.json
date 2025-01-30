@@ -1,0 +1,8 @@
+{
+    "textures": [
+        "kasumi_live_default_t11.1024/texture_00.png"
+    ],
+    "physics": "kasumi.physics",
+    "url": "https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/BanG%20Dream!/asneeded/live2d/chara/001/001_live_default/dummy.model.json",
+    "model": "https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/BanG%20Dream!/asneeded/live2d/chara/001/001_live_default/kasumi_live_default_t11.moc"
+}
